@@ -245,8 +245,9 @@ Python 在 `sys.path` 裡面搜尋模組。
 > and will cease to be set or taken into consideration by the import system in Python 3.14. 
 > (Contributed by Brett Cannon in [gh-65961](https://github.com/python/cpython/issues/65961).)
 
-[`__package__` – Python 3 Language Reference](https://docs.python.org/3.12/reference/import.html#package__)
-> It is **strongly** recommended that you rely on `__spec__` instead of this attribute.
+[`__package__` – Python 3 Language Reference](https://docs.python.org/3.12/reference/datamodel.html#module.__package__)
+> It is **strongly** recommended that you use `module.__spec__.parent` instead of `module.__package__`.
+> `__package__` is now only used as a fallback if `__spec__.parent` is not set, and this fallback path is deprecated.
 > 
 > Changed in version 3.6: The value of `__package__` is expected to be the same as `__spec__.parent`.
 
